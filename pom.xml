@@ -14,7 +14,7 @@
   <url>http://www.example.com</url>
 
     <properties>
-        <mysql.version>5.0.2</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <shiro.version>1.2.4</shiro.version>
 
         <!-- spring版本号 -->
