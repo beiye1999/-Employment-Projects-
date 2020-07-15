@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.by.dao.WithdrawalMapper" >
+  <resultMap id="BaseResultMap" type="com.by.pojo.Withdrawal" >
+    <id column="wID" property="wid" jdbcType="INTEGER" />
+    <result column="uID" property="uid" jdbcType="INTEGER" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="zname" property="zname" jdbcType="VARCHAR" />
+    <result column="txnum" property="txnum" jdbcType="VARCHAR" />
+    <result column="txbank" property="txbank" jdbcType="VARCHAR" />
+    <result column="txmoney" property="txmoney" jdbcType="VARCHAR" />
+    <result column="dzmoney" property="dzmoney" jdbcType="VARCHAR" />
+    <result column="sxf" property="sxf" jdbcType="VARCHAR" />
+    <result column="txtime" property="txtime" jdbcType="TIMESTAMP" />
+    <result column="zztime" property="zztime" jdbcType="TIMESTAMP" />
+    <result column="statu" property="statu" jdbcType="VARCHAR" />
+    <result column="shwho" property="shwho" jdbcType="VARCHAR" />
+    <result column="shtime" property="shtime" jdbcType="TIMESTAMP" />
+    <result column="nothing" property="nothing" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    wID, uID, uname, zname, txnum, txbank, txmoney, dzmoney, sxf, txtime, zztime, statu, 
+    shwho, shtime, nothing
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from withdrawal
+    where wID = #{wid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from withdrawal
+    where wID = #{wid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.by.pojo.Withdrawal" >
+    insert into withdrawal (wID, uID, uname, 
+      zname, txnum, txbank, 
+      txmoney, dzmoney, sxf, 
+      txtime, zztime, statu, 
+      shwho, shtime, nothing
+      )
+    values (#{wid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, 
+      #{zname,jdbcType=VARCHAR}, #{txnum,jdbcType=VARCHAR}, #{txbank,jdbcType=VARCHAR}, 
+      #{txmoney,jdbcType=VARCHAR}, #{dzmoney,jdbcType=VARCHAR}, #{sxf,jdbcType=VARCHAR}, 
+      #{txtime,jdbcType=TIMESTAMP}, #{zztime,jdbcType=TIMESTAMP}, #{statu,jdbcType=VARCHAR}, 
+      #{shwho,jdbcType=VARCHAR}, #{shtime,jdbcType=TIMESTAMP}, #{nothing,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.by.pojo.Withdrawal" >
+    insert into withdrawal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        wID,
+      </if>
+      <if test="uid != null" >
+        uID,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="zname != null" >
+        zname,
+      </if>
+      <if test="txnum != null" >
+        txnum,
+      </if>
+      <if test="txbank != null" >
+        txbank,
+      </if>
+      <if test="txmoney != null" >
+        txmoney,
+      </if>
+      <if test="dzmoney != null" >
+        dzmoney,
+      </if>
+      <if test="sxf != null" >
+        sxf,
+      </if>
+      <if test="txtime != null" >
+        txtime,
+      </if>
+      <if test="zztime != null" >
+        zztime,
+      </if>
+      <if test="statu != null" >
+        statu,
+      </if>
+      <if test="shwho != null" >
+        shwho,
+      </if>
+      <if test="shtime != null" >
+        shtime,
+      </if>
+      <if test="nothing != null" >
+        nothing,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        #{wid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="zname != null" >
+        #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="txnum != null" >
+        #{txnum,jdbcType=VARCHAR},
+      </if>
+      <if test="txbank != null" >
+        #{txbank,jdbcType=VARCHAR},
+      </if>
+      <if test="txmoney != null" >
+        #{txmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="dzmoney != null" >
+        #{dzmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="sxf != null" >
+        #{sxf,jdbcType=VARCHAR},
+      </if>
+      <if test="txtime != null" >
+        #{txtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zztime != null" >
+        #{zztime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statu != null" >
+        #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="shwho != null" >
+        #{shwho,jdbcType=VARCHAR},
+      </if>
+      <if test="shtime != null" >
+        #{shtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nothing != null" >
+        #{nothing,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.by.pojo.Withdrawal" >
+    update withdrawal
+    <set >
+      <if test="uid != null" >
+        uID = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="zname != null" >
+        zname = #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="txnum != null" >
+        txnum = #{txnum,jdbcType=VARCHAR},
+      </if>
+      <if test="txbank != null" >
+        txbank = #{txbank,jdbcType=VARCHAR},
+      </if>
+      <if test="txmoney != null" >
+        txmoney = #{txmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="dzmoney != null" >
+        dzmoney = #{dzmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="sxf != null" >
+        sxf = #{sxf,jdbcType=VARCHAR},
+      </if>
+      <if test="txtime != null" >
+        txtime = #{txtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zztime != null" >
+        zztime = #{zztime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statu != null" >
+        statu = #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="shwho != null" >
+        shwho = #{shwho,jdbcType=VARCHAR},
+      </if>
+      <if test="shtime != null" >
+        shtime = #{shtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nothing != null" >
+        nothing = #{nothing,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where wID = #{wid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.by.pojo.Withdrawal" >
+    update withdrawal
+    set uID = #{uid,jdbcType=INTEGER},
+      uname = #{uname,jdbcType=VARCHAR},
+      zname = #{zname,jdbcType=VARCHAR},
+      txnum = #{txnum,jdbcType=VARCHAR},
+      txbank = #{txbank,jdbcType=VARCHAR},
+      txmoney = #{txmoney,jdbcType=VARCHAR},
+      dzmoney = #{dzmoney,jdbcType=VARCHAR},
+      sxf = #{sxf,jdbcType=VARCHAR},
+      txtime = #{txtime,jdbcType=TIMESTAMP},
+      zztime = #{zztime,jdbcType=TIMESTAMP},
+      statu = #{statu,jdbcType=VARCHAR},
+      shwho = #{shwho,jdbcType=VARCHAR},
+      shtime = #{shtime,jdbcType=TIMESTAMP},
+      nothing = #{nothing,jdbcType=VARCHAR}
+    where wID = #{wid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.by.dao.BankcardMapper" >
+  <resultMap id="BaseResultMap" type="com.by.pojo.Bankcard" >
+    <id column="bID" property="bid" jdbcType="INTEGER" />
+    <result column="uID" property="uid" jdbcType="INTEGER" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="zname" property="zname" jdbcType="VARCHAR" />
+    <result column="sfz" property="sfz" jdbcType="VARCHAR" />
+    <result column="khh" property="khh" jdbcType="VARCHAR" />
+    <result column="cardid" property="cardid" jdbcType="VARCHAR" />
+    <result column="tjtime" property="tjtime" jdbcType="TIMESTAMP" />
+    <result column="statu" property="statu" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    bID, uID, uname, zname, sfz, khh, cardid, tjtime, statu
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from bankcard
+    where bID = #{bid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from bankcard
+    where bID = #{bid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.by.pojo.Bankcard" >
+    insert into bankcard (bID, uID, uname, 
+      zname, sfz, khh, cardid, 
+      tjtime, statu)
+    values (#{bid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, 
+      #{zname,jdbcType=VARCHAR}, #{sfz,jdbcType=VARCHAR}, #{khh,jdbcType=VARCHAR}, #{cardid,jdbcType=VARCHAR}, 
+      #{tjtime,jdbcType=TIMESTAMP}, #{statu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.by.pojo.Bankcard" >
+    insert into bankcard
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        bID,
+      </if>
+      <if test="uid != null" >
+        uID,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="zname != null" >
+        zname,
+      </if>
+      <if test="sfz != null" >
+        sfz,
+      </if>
+      <if test="khh != null" >
+        khh,
+      </if>
+      <if test="cardid != null" >
+        cardid,
+      </if>
+      <if test="tjtime != null" >
+        tjtime,
+      </if>
+      <if test="statu != null" >
+        statu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="zname != null" >
+        #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="sfz != null" >
+        #{sfz,jdbcType=VARCHAR},
+      </if>
+      <if test="khh != null" >
+        #{khh,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="tjtime != null" >
+        #{tjtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statu != null" >
+        #{statu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.by.pojo.Bankcard" >
+    update bankcard
+    <set >
+      <if test="uid != null" >
+        uID = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="zname != null" >
+        zname = #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="sfz != null" >
+        sfz = #{sfz,jdbcType=VARCHAR},
+      </if>
+      <if test="khh != null" >
+        khh = #{khh,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        cardid = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="tjtime != null" >
+        tjtime = #{tjtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statu != null" >
+        statu = #{statu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bID = #{bid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.by.pojo.Bankcard" >
+    update bankcard
+    set uID = #{uid,jdbcType=INTEGER},
+      uname = #{uname,jdbcType=VARCHAR},
+      zname = #{zname,jdbcType=VARCHAR},
+      sfz = #{sfz,jdbcType=VARCHAR},
+      khh = #{khh,jdbcType=VARCHAR},
+      cardid = #{cardid,jdbcType=VARCHAR},
+      tjtime = #{tjtime,jdbcType=TIMESTAMP},
+      statu = #{statu,jdbcType=VARCHAR}
+    where bID = #{bid,jdbcType=INTEGER}
+  </update>
+</mapper>

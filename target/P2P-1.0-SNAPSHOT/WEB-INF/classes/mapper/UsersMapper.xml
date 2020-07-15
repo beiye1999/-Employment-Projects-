@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.by.dao.UsersMapper" >
+  <resultMap id="BaseResultMap" type="com.by.pojo.Users" >
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="unickname" property="unickname" jdbcType="VARCHAR" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="umailbox" property="umailbox" jdbcType="VARCHAR" />
+    <result column="uphonenumber" property="uphonenumber" jdbcType="VARCHAR" />
+    <result column="uregisterdate" property="uregisterdate" jdbcType="TIMESTAMP" />
+    <result column="uflip" property="uflip" jdbcType="VARCHAR" />
+    <result column="ufldate" property="ufldate" jdbcType="TIMESTAMP" />
+    <result column="ureferrer" property="ureferrer" jdbcType="VARCHAR" />
+    <result column="ureferrername" property="ureferrername" jdbcType="VARCHAR" />
+    <result column="userpaytoid" property="userpaytoid" jdbcType="VARCHAR" />
+    <result column="ucertnumber" property="ucertnumber" jdbcType="VARCHAR" />
+    <result column="upassword" property="upassword" jdbcType="VARCHAR" />
+    <result column="ucardid" property="ucardid" jdbcType="VARCHAR" />
+    <result column="uhead" property="uhead" jdbcType="VARCHAR" />
+    <result column="upwd_zd" property="upwdZd" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    uid, unickname, uname, umailbox, uphonenumber, uregisterdate, uflip, ufldate, ureferrer, 
+    ureferrername, userpaytoid, ucertnumber, upassword, ucardid, uhead, upwd_zd
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+    <!--验证用户名是否唯一-->
+    <select id="queryUsers" resultMap="BaseResultMap" resultType="com.by.pojo.Users">
+        SELECT * FROM users WHERE unickname=#{unickname}
+    </select>
+    <!--验证电话号码是否唯一，是否已注册-->
+    <select id="queryPhone" resultMap="BaseResultMap" resultType="com.by.pojo.Users">
+        SELECT * FROM users WHERE uphonenumber=#{uphonenumber}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from users
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.by.pojo.Users" >
+    insert into users (uid, unickname, uname, 
+      umailbox, uphonenumber, uregisterdate, 
+      uflip, ufldate, ureferrer, 
+      ureferrername, userpaytoid, ucertnumber, 
+      upassword, ucardid, uhead, 
+      upwd_zd)
+    values (#{uid,jdbcType=INTEGER}, #{unickname,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, 
+      #{umailbox,jdbcType=VARCHAR}, #{uphonenumber,jdbcType=VARCHAR}, #{uregisterdate,jdbcType=TIMESTAMP}, 
+      #{uflip,jdbcType=VARCHAR}, #{ufldate,jdbcType=TIMESTAMP}, #{ureferrer,jdbcType=VARCHAR}, 
+      #{ureferrername,jdbcType=VARCHAR}, #{userpaytoid,jdbcType=VARCHAR}, #{ucertnumber,jdbcType=VARCHAR}, 
+      #{upassword,jdbcType=VARCHAR}, #{ucardid,jdbcType=VARCHAR}, #{uhead,jdbcType=VARCHAR}, 
+      #{upwdZd,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.by.pojo.Users" >
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="unickname != null" >
+        unickname,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="umailbox != null" >
+        umailbox,
+      </if>
+      <if test="uphonenumber != null" >
+        uphonenumber,
+      </if>
+      <if test="uregisterdate != null" >
+        uregisterdate,
+      </if>
+      <if test="uflip != null" >
+        uflip,
+      </if>
+      <if test="ufldate != null" >
+        ufldate,
+      </if>
+      <if test="ureferrer != null" >
+        ureferrer,
+      </if>
+      <if test="ureferrername != null" >
+        ureferrername,
+      </if>
+      <if test="userpaytoid != null" >
+        userpaytoid,
+      </if>
+      <if test="ucertnumber != null" >
+        ucertnumber,
+      </if>
+      <if test="upassword != null" >
+        upassword,
+      </if>
+      <if test="ucardid != null" >
+        ucardid,
+      </if>
+      <if test="uhead != null" >
+        uhead,
+      </if>
+      <if test="upwdZd != null" >
+        upwd_zd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="unickname != null" >
+        #{unickname,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="umailbox != null" >
+        #{umailbox,jdbcType=VARCHAR},
+      </if>
+      <if test="uphonenumber != null" >
+        #{uphonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uregisterdate != null" >
+        #{uregisterdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uflip != null" >
+        #{uflip,jdbcType=VARCHAR},
+      </if>
+      <if test="ufldate != null" >
+        #{ufldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ureferrer != null" >
+        #{ureferrer,jdbcType=VARCHAR},
+      </if>
+      <if test="ureferrername != null" >
+        #{ureferrername,jdbcType=VARCHAR},
+      </if>
+      <if test="userpaytoid != null" >
+        #{userpaytoid,jdbcType=VARCHAR},
+      </if>
+      <if test="ucertnumber != null" >
+        #{ucertnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upassword != null" >
+        #{upassword,jdbcType=VARCHAR},
+      </if>
+      <if test="ucardid != null" >
+        #{ucardid,jdbcType=VARCHAR},
+      </if>
+      <if test="uhead != null" >
+        #{uhead,jdbcType=VARCHAR},
+      </if>
+      <if test="upwdZd != null" >
+        #{upwdZd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.by.pojo.Users" >
+    update users
+    <set >
+      <if test="unickname != null" >
+        unickname = #{unickname,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="umailbox != null" >
+        umailbox = #{umailbox,jdbcType=VARCHAR},
+      </if>
+      <if test="uphonenumber != null" >
+        uphonenumber = #{uphonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uregisterdate != null" >
+        uregisterdate = #{uregisterdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uflip != null" >
+        uflip = #{uflip,jdbcType=VARCHAR},
+      </if>
+      <if test="ufldate != null" >
+        ufldate = #{ufldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ureferrer != null" >
+        ureferrer = #{ureferrer,jdbcType=VARCHAR},
+      </if>
+      <if test="ureferrername != null" >
+        ureferrername = #{ureferrername,jdbcType=VARCHAR},
+      </if>
+      <if test="userpaytoid != null" >
+        userpaytoid = #{userpaytoid,jdbcType=VARCHAR},
+      </if>
+      <if test="ucertnumber != null" >
+        ucertnumber = #{ucertnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="upassword != null" >
+        upassword = #{upassword,jdbcType=VARCHAR},
+      </if>
+      <if test="ucardid != null" >
+        ucardid = #{ucardid,jdbcType=VARCHAR},
+      </if>
+      <if test="uhead != null" >
+        uhead = #{uhead,jdbcType=VARCHAR},
+      </if>
+      <if test="upwdZd != null" >
+        upwd_zd = #{upwdZd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.by.pojo.Users" >
+    update users
+    set unickname = #{unickname,jdbcType=VARCHAR},
+      uname = #{uname,jdbcType=VARCHAR},
+      umailbox = #{umailbox,jdbcType=VARCHAR},
+      uphonenumber = #{uphonenumber,jdbcType=VARCHAR},
+      uregisterdate = #{uregisterdate,jdbcType=TIMESTAMP},
+      uflip = #{uflip,jdbcType=VARCHAR},
+      ufldate = #{ufldate,jdbcType=TIMESTAMP},
+      ureferrer = #{ureferrer,jdbcType=VARCHAR},
+      ureferrername = #{ureferrername,jdbcType=VARCHAR},
+      userpaytoid = #{userpaytoid,jdbcType=VARCHAR},
+      ucertnumber = #{ucertnumber,jdbcType=VARCHAR},
+      upassword = #{upassword,jdbcType=VARCHAR},
+      ucardid = #{ucardid,jdbcType=VARCHAR},
+      uhead = #{uhead,jdbcType=VARCHAR},
+      upwd_zd = #{upwdZd,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

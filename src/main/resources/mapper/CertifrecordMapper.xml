@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.by.dao.CertifrecordMapper" >
+  <resultMap id="BaseResultMap" type="com.by.pojo.Certifrecord" >
+    <id column="crid" property="crid" jdbcType="INTEGER" />
+    <result column="cruserid" property="cruserid" jdbcType="INTEGER" />
+    <result column="crusername" property="crusername" jdbcType="VARCHAR" />
+    <result column="craiid" property="craiid" jdbcType="INTEGER" />
+    <result column="crainame" property="crainame" jdbcType="VARCHAR" />
+    <result column="craitype" property="craitype" jdbcType="VARCHAR" />
+    <result column="crispass" property="crispass" jdbcType="VARCHAR" />
+    <result column="crdate" property="crdate" jdbcType="TIMESTAMP" />
+    <result column="crauditor" property="crauditor" jdbcType="VARCHAR" />
+    <result column="crintegral" property="crintegral" jdbcType="INTEGER" />
+    <result column="crviewpoint" property="crviewpoint" jdbcType="VARCHAR" />
+    <result column="crimg" property="crimg" jdbcType="VARCHAR" />
+    <result column="crupldate" property="crupldate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    crid, cruserid, crusername, craiid, crainame, craitype, crispass, crdate, crauditor, 
+    crintegral, crviewpoint, crimg, crupldate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from certifrecord
+    where crid = #{crid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from certifrecord
+    where crid = #{crid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.by.pojo.Certifrecord" >
+    insert into certifrecord (crid, cruserid, crusername, 
+      craiid, crainame, craitype, 
+      crispass, crdate, crauditor, 
+      crintegral, crviewpoint, crimg, 
+      crupldate)
+    values (#{crid,jdbcType=INTEGER}, #{cruserid,jdbcType=INTEGER}, #{crusername,jdbcType=VARCHAR}, 
+      #{craiid,jdbcType=INTEGER}, #{crainame,jdbcType=VARCHAR}, #{craitype,jdbcType=VARCHAR}, 
+      #{crispass,jdbcType=VARCHAR}, #{crdate,jdbcType=TIMESTAMP}, #{crauditor,jdbcType=VARCHAR}, 
+      #{crintegral,jdbcType=INTEGER}, #{crviewpoint,jdbcType=VARCHAR}, #{crimg,jdbcType=VARCHAR}, 
+      #{crupldate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.by.pojo.Certifrecord" >
+    insert into certifrecord
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="crid != null" >
+        crid,
+      </if>
+      <if test="cruserid != null" >
+        cruserid,
+      </if>
+      <if test="crusername != null" >
+        crusername,
+      </if>
+      <if test="craiid != null" >
+        craiid,
+      </if>
+      <if test="crainame != null" >
+        crainame,
+      </if>
+      <if test="craitype != null" >
+        craitype,
+      </if>
+      <if test="crispass != null" >
+        crispass,
+      </if>
+      <if test="crdate != null" >
+        crdate,
+      </if>
+      <if test="crauditor != null" >
+        crauditor,
+      </if>
+      <if test="crintegral != null" >
+        crintegral,
+      </if>
+      <if test="crviewpoint != null" >
+        crviewpoint,
+      </if>
+      <if test="crimg != null" >
+        crimg,
+      </if>
+      <if test="crupldate != null" >
+        crupldate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="crid != null" >
+        #{crid,jdbcType=INTEGER},
+      </if>
+      <if test="cruserid != null" >
+        #{cruserid,jdbcType=INTEGER},
+      </if>
+      <if test="crusername != null" >
+        #{crusername,jdbcType=VARCHAR},
+      </if>
+      <if test="craiid != null" >
+        #{craiid,jdbcType=INTEGER},
+      </if>
+      <if test="crainame != null" >
+        #{crainame,jdbcType=VARCHAR},
+      </if>
+      <if test="craitype != null" >
+        #{craitype,jdbcType=VARCHAR},
+      </if>
+      <if test="crispass != null" >
+        #{crispass,jdbcType=VARCHAR},
+      </if>
+      <if test="crdate != null" >
+        #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crauditor != null" >
+        #{crauditor,jdbcType=VARCHAR},
+      </if>
+      <if test="crintegral != null" >
+        #{crintegral,jdbcType=INTEGER},
+      </if>
+      <if test="crviewpoint != null" >
+        #{crviewpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="crimg != null" >
+        #{crimg,jdbcType=VARCHAR},
+      </if>
+      <if test="crupldate != null" >
+        #{crupldate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.by.pojo.Certifrecord" >
+    update certifrecord
+    <set >
+      <if test="cruserid != null" >
+        cruserid = #{cruserid,jdbcType=INTEGER},
+      </if>
+      <if test="crusername != null" >
+        crusername = #{crusername,jdbcType=VARCHAR},
+      </if>
+      <if test="craiid != null" >
+        craiid = #{craiid,jdbcType=INTEGER},
+      </if>
+      <if test="crainame != null" >
+        crainame = #{crainame,jdbcType=VARCHAR},
+      </if>
+      <if test="craitype != null" >
+        craitype = #{craitype,jdbcType=VARCHAR},
+      </if>
+      <if test="crispass != null" >
+        crispass = #{crispass,jdbcType=VARCHAR},
+      </if>
+      <if test="crdate != null" >
+        crdate = #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crauditor != null" >
+        crauditor = #{crauditor,jdbcType=VARCHAR},
+      </if>
+      <if test="crintegral != null" >
+        crintegral = #{crintegral,jdbcType=INTEGER},
+      </if>
+      <if test="crviewpoint != null" >
+        crviewpoint = #{crviewpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="crimg != null" >
+        crimg = #{crimg,jdbcType=VARCHAR},
+      </if>
+      <if test="crupldate != null" >
+        crupldate = #{crupldate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where crid = #{crid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.by.pojo.Certifrecord" >
+    update certifrecord
+    set cruserid = #{cruserid,jdbcType=INTEGER},
+      crusername = #{crusername,jdbcType=VARCHAR},
+      craiid = #{craiid,jdbcType=INTEGER},
+      crainame = #{crainame,jdbcType=VARCHAR},
+      craitype = #{craitype,jdbcType=VARCHAR},
+      crispass = #{crispass,jdbcType=VARCHAR},
+      crdate = #{crdate,jdbcType=TIMESTAMP},
+      crauditor = #{crauditor,jdbcType=VARCHAR},
+      crintegral = #{crintegral,jdbcType=INTEGER},
+      crviewpoint = #{crviewpoint,jdbcType=VARCHAR},
+      crimg = #{crimg,jdbcType=VARCHAR},
+      crupldate = #{crupldate,jdbcType=TIMESTAMP}
+    where crid = #{crid,jdbcType=INTEGER}
+  </update>
+</mapper>
