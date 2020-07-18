@@ -11,7 +11,7 @@
 </head>
 <body>
     <%--引入头部页面--%>
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="public/header.jsp"/>
 <!--注册-->
 <div class="wrap">
   <div class="tdbModule register">
@@ -40,7 +40,7 @@
 
         <li class="telNumber"> <span class="dis">手机号码:</span>
           <input type="text" onchange="validata_add_form()" class="input _phoneNum" id="phone" name="uphonenumber" tabindex="1" maxlength="11">
-          <button class="layui-btn layui-btn-radius" id="sendPhone">获取验证码</button>
+          <input  class="layui-btn layui-btn-radius" type="button" value="获取验证码" id="sendPhone">
           <span id="phoneJy"></span>
         </li>
 
@@ -50,7 +50,7 @@
         </li>
 
         <li> <span class="dis">推 荐 人:</span>
-          <input type="text" class="input input1 _invist">
+          <input type="text" id="invist" onchange="validata_add_form()" class="input input1 _invist" name="ureferrer">
           <span class="_invist_msg">请填写推荐人账户名，如无推荐人请留空</span></li>
 
         <li class="agree">
@@ -64,9 +64,10 @@
 </div>
 
     <%--引入底部模块--%>
-    <jsp:include page="foot.jsp"/>
+    <jsp:include page="public/foot.jsp"/>
     <script type="text/javascript" src="${pageContext.request.contextPath }/static/script/jquery.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/static/script/jquery.cookie.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/static/script/common.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath }/static/script/register.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/static/js/register.js"></script>
 </body>
 </html>

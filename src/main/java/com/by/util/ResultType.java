@@ -12,6 +12,7 @@ public enum ResultType {
 	MANAGER("10003"),
 	REDIRECT("10004"),
 	REDIRECTACTION("10005"),
+    KAPTCHAERROR("10006"),
 	EXCEPTION("1006");
 	
 	private  String value="";

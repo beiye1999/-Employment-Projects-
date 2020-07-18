@@ -37,6 +37,7 @@
     <select id="queryPhone" resultMap="BaseResultMap" resultType="com.by.pojo.Users">
         SELECT * FROM users WHERE uphonenumber=#{uphonenumber}
     </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from users
     where uid = #{uid,jdbcType=INTEGER}

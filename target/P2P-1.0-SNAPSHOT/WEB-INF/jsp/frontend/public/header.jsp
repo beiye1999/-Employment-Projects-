@@ -35,7 +35,7 @@
     </div>
     <div class="header min-width">
         <div class="container">
-            <div class="fn-left logo"> <a class="" href="index.jsp"> <img src="${pageContext.request.contextPath }/static/images/logo.png"  title=""> </a> </div>
+            <div class="fn-left logo"> <a class="" href="../index.jsp"> <img src="${pageContext.request.contextPath }/static/images/logo.png" title=""> </a> </div>
             <ul class="top-nav fn-clear">
                 <li class="on"> <a href="index.html">首页</a> </li>
                 <li> <a href="list.html" class="">我要投资</a> </li>

@@ -2,6 +2,8 @@ package com.by.dao;
 
 import com.by.pojo.Users;
 
+import java.util.List;
+
 public interface UsersMapper {
     int deleteByPrimaryKey(Integer uid);
 
@@ -18,4 +20,6 @@ public interface UsersMapper {
     Users queryUsers(String unickname);
 
     Users queryPhone(String uphonenumber);
+
+
 }

@@ -24,7 +24,7 @@
             </dl>
             <dl>
                 <dt>帮助中心</dt>
-                <dd><a href="帮助中心.html">新手入门</a><a href="个人中心首页.jsp">我的账户</a><a href="list.jsp">债权转让</a></dd>
+                <dd><a href="帮助中心.html">新手入门</a><a href="个人中心首页.jsp">我的账户</a><a href="../list.jsp">债权转让</a></dd>
             </dl>
             <dl>
                 <dt>联系我们</dt>

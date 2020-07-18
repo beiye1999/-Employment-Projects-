@@ -64,7 +64,7 @@
 </head>
 <body>
     <%--引入头部--%>
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="public/header.jsp"/>
 <!--banner-->
 <div class="flexslider">
     <ul class="slides">
@@ -486,7 +486,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="foot.jsp"/>
+<jsp:include page="public/foot.jsp"/>
     <script src="${pageContext.request.contextPath }/static/script/index.js"></script>
 </body>
 </html>

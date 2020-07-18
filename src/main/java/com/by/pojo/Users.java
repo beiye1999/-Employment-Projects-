@@ -35,6 +35,28 @@ public class Users {
 
     private String upwdZd;
 
+    @Override
+    public String toString() {
+        return "Users{" +
+                "uid=" + uid +
+                ", unickname='" + unickname + '\'' +
+                ", uname='" + uname + '\'' +
+                ", umailbox='" + umailbox + '\'' +
+                ", uphonenumber='" + uphonenumber + '\'' +
+                ", uregisterdate=" + uregisterdate +
+                ", uflip='" + uflip + '\'' +
+                ", ufldate=" + ufldate +
+                ", ureferrer='" + ureferrer + '\'' +
+                ", ureferrername='" + ureferrername + '\'' +
+                ", userpaytoid='" + userpaytoid + '\'' +
+                ", ucertnumber='" + ucertnumber + '\'' +
+                ", upassword='" + upassword + '\'' +
+                ", ucardid='" + ucardid + '\'' +
+                ", uhead='" + uhead + '\'' +
+                ", upwdZd='" + upwdZd + '\'' +
+                '}';
+    }
+
     public Integer getUid() {
         return uid;
     }
